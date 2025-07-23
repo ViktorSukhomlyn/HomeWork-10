@@ -10,22 +10,22 @@ public class Task2 {
 
     public static void main(String[] args) throws IOException {
             List<User> users = new ArrayList<User>();
-            String filePath = "file.txt";
+            String filePath = "./src/main/resources/file.txt";
             try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
                 String data;
-                data=reader.readLine();
+                data = reader.readLine();
                 while ((data = reader.readLine()) != null) {
                     String[] words = data.split(" ");
                     User tempUser = new User(words[0], Integer.valueOf(words[1]));
                     users.add(tempUser);
                 }
-                System.out.println("Зчитано данні з файлу: "+filePath);
+                System.out.println("Зчитано данні з файлу: " + filePath);
 
                 Gson gson = new Gson();
-                filePath = "user.json";
+                filePath = "./src/main/resources/user.json";
                 try (FileWriter writer = new FileWriter(filePath)) {
                     gson.toJson(users, writer);
-                    System.out.println("Записано данні у файл: "+filePath);
+                    System.out.println("Записано данні у файл: " + filePath);
                 }
                 catch (IOException e) {
                     System.err.println("Помилка запису в файл: " + e.getMessage());
@@ -34,10 +34,7 @@ public class Task2 {
             catch (IOException e) {
                 System.err.println("Помилка читання з файлу: " + e.getMessage());
             }
-
         }
-
-
 }
 class User {
 

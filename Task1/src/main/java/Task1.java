@@ -5,13 +5,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Task1 {
-    public void ReadFile (){
+    public void readFile (){
         String myString;
         String myPattern="\\(\\d{3}\\)\\s\\d{3}-\\d{4}|\\d{3}-\\d{3}-\\d{4}";
 
         Pattern regexp = Pattern.compile(myPattern);
             try {
-            Scanner scanner = new Scanner(new File("file.txt"));
+            Scanner scanner = new Scanner(new File("./src/main/resources/file.txt"));
 
             while (scanner.hasNextLine()) {
                 myString=scanner.nextLine();
@@ -24,6 +24,5 @@ public class Task1 {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 }
